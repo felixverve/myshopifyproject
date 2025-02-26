@@ -27,6 +27,7 @@
       "block_order": [
         "button"
       ],
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/banner-1.jpg",
         "image_overlay_opacity": 40,
@@ -36,7 +37,7 @@
         "desktop_content_alignment": "left",
         "color_scheme": "scheme-3",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
