@@ -2802,6 +2802,7 @@ details[open] > .header__submenu {
   padding: 1.2rem;
   text-decoration: none;
   color: #000;
+  font-weight: block;
 }
 
 .header__menu-item:hover {
