@@ -2849,6 +2849,7 @@ details[open] > .header__submenu {
 
 .header__menu-item:hover {
   color: rgb(var(--color-foreground));
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .header__menu-item span {
