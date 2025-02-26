@@ -2484,6 +2484,11 @@ input[type='checkbox'] {
     margin-left: -0.75rem;
   }
 
+  .header__heading {
+    position: absolute;
+    left: 0;
+  }
+
   .header__heading,
   .header__heading-link {
     justify-self: start;
