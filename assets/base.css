@@ -3707,7 +3707,7 @@ details-disclosure > details {
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .image-slider {
     display: flex;
     overflow-x: scroll;
