@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'theme.css' | aset_url }}" media="print" onload="this.media='all'">
 
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -16,6 +17,25 @@
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
+  }
+
+  .header__heading-link {
+    position: relative;
+    width: 80px;
+    height: 76px;
+    color: var(--text);
+    max-width: 100%;
+  }
+
+  .logo__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+    image-rendering: auto;
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -54,7 +74,7 @@
   .list-menu__item {
     display: flex;
     align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    line-height: calc(1 + 0.2 / var(--font-body-scale));
   }
 
   .list-menu__item--link {
@@ -74,6 +94,8 @@
 
 {%- style -%}
   .header {
+    position: relative;
+    height: 106px;
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
 

@@ -3375,6 +3375,8 @@ details-disclosure>details {
     transition: transform var(--duration-extended) ease,
       box-shadow var(--duration-long) ease;
     /* Slow the card transition speed while hover is active. */
+    box-shadow var(--duration-long) ease;
+    /* Slow the card transition speed while hover is active. */
     transform: rotate(1deg);
     box-shadow: -1rem -1rem 1rem -1rem rgba(0, 0, 0, 0.05),
       1rem 1rem 1rem -1rem rgba(0, 0, 0, 0.05),
