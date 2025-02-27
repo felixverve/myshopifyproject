@@ -24,9 +24,7 @@
           }
         }
       },
-      "block_order": [
-        "button"
-      ],
+      "block_order": ["button"],
       "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/banner-1.jpg",
@@ -71,8 +69,5 @@
       }
     }
   },
-  "order": [
-    "image_banner",
-    "featured_collection"
-  ]
+  "order": ["image_banner", "featured_collection"]
 }
