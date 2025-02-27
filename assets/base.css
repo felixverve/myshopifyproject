@@ -3692,29 +3692,3 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
-
-/* image-slider.liquid */
-.image-slider {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.image-slider img {
-  flex: 0 0 auto;
-  width: calc(100% / 6);
-  height: auto;
-}
-
-@media (max-width: 1000px) {
-  .image-slider {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-  }
-  .image-slider img {
-    width: 100%;
-    scroll-snap-align: start;
-  }
-}
