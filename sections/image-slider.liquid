@@ -1,0 +1,155 @@
+<div class="main-carousel page-width">
+  <div class="carousel-cell">
+    <a href="/collections/all" class="image-slider__link">
+      <span class="image-slider__overlay">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/1-4-1740640587-67c0114b8fc7b.jpg?v=1740640590"
+          alt="Image 1"
+        >
+      </span>
+      <span class="image-slider__text">Shop Now</span>
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="/collections/all" class="image-slider__link">
+      <span class="image-slider__overlay">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/1-4-1740640587-67c0114b8fc7b.jpg?v=1740640590"
+          alt="Image 1"
+        >
+      </span>
+      <span class="image-slider__text">Shop Now</span>
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="/collections/all" class="image-slider__link">
+      <span class="image-slider__overlay">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/1-4-1740640587-67c0114b8fc7b.jpg?v=1740640590"
+          alt="Image 1"
+        >
+      </span>
+      <span class="image-slider__text">Shop Now</span>
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="/collections/all" class="image-slider__link">
+      <span class="image-slider__overlay">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/1-4-1740640587-67c0114b8fc7b.jpg?v=1740640590"
+          alt="Image 1"
+        >
+      </span>
+      <span class="image-slider__text">Shop Now</span>
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="/collections/all" class="image-slider__link">
+      <span class="image-slider__overlay">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/1-4-1740640587-67c0114b8fc7b.jpg?v=1740640590"
+          alt="Image 1"
+        >
+      </span>
+      <span class="image-slider__text">Shop Now</span>
+    </a>
+  </div>
+  <div class="carousel-cell">
+    <a href="/collections/all" class="image-slider__link">
+      <span class="image-slider__overlay">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/1-4-1740640587-67c0114b8fc7b.jpg?v=1740640590"
+          alt="Image 1"
+        >
+      </span>
+      <span class="image-slider__text">Shop Now</span>
+    </a>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script defer src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+  // 定义 Flickity 实例变量
+  let flkty;
+
+  function initFlickity() {
+    if (window.innerWidth < 1000) {
+      if (!flkty) {
+        const elem = document.querySelector('.main-carousel');
+        flkty = new Flickity(elem, {
+          cellAlign: 'left',
+          contain: true,
+        });
+      }
+    } else {
+      if (flkty) {
+        flkty.destroy();
+        flkty = null;
+      }
+    }
+  }
+
+  // 页面加载时初始化
+  window.addEventListener('load', initFlickity);
+
+  // 监听窗口大小变化
+  window.addEventListener('resize', initFlickity);
+</script>
+<style>
+  /* 隐藏 Flickity 的左右箭头 */
+  .flickity-prev-next-button {
+    display: none;
+  }
+  .main-carousel {
+    margin-top: 44px;
+    text-align: center;
+  }
+  .main-carousel a {
+    color: #000;
+    text-decoration: none;
+  }
+  .image-slider__overlay {
+    display: block;
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+  .carousel-cell {
+    flex: 1;
+    /* 设置左右外边距为 10px，可根据需求调整 */
+    margin-right: 20px;
+  }
+  .carousel-cell:last-child {
+    /* 设置左右外边距为 10px，可根据需求调整 */
+    margin-right: 0px;
+  }
+  .carousel-cell img {
+    /* 设置左右外边距为 10px，可根据需求调整 */
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    vertical-align: top;
+  }
+  /* 当屏幕宽度大于等于 1000px 时，让单元格平铺 */
+  @media (min-width: 1000px) {
+    .main-carousel {
+      display: flex;
+    }
+    .carousel-cell {
+      width: auto; /* 或者根据需要设置固定宽度 */
+    }
+  }
+
+  /* 当屏幕宽度小于 1000px 时，使用 Flickity 默认布局 */
+  @media (max-width: 999px) {
+    .main-carousel {
+      display: block;
+    }
+    .carousel-cell {
+      width: 30%;
+    }
+  }
+</style>

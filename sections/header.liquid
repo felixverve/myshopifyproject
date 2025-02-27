@@ -82,6 +82,25 @@
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .header__heading-link {
+    position: relative;
+    width: 80px;
+    height: 76px;
+    color: var(--text);
+    max-width: 100%;
+  }
+
+  .logo__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+    image-rendering: auto;
+  }
+
   @media screen and (min-width: 750px) {
     .section-header {
       margin-bottom: {{ section.settings.margin_bottom }}px;
@@ -119,8 +138,8 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    {%- liquid
+  <header height="106" class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+    {%- liquid 
       if section.settings.menu != blank
         render 'header-drawer'
       endif
@@ -152,7 +171,8 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              {% comment %} <span class="h2">{{ shop.name }}</span> {% endcomment %}
+              <img class="logo__image" src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/5887f34f8a81db7e931448096ccc9383_1.png?v=1740542597" alt="{{ shop.name }}">
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -192,7 +212,8 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              {% comment %} <span class="h2">{{ shop.name }}</span> {% endcomment %}
+              <img  class="logo__image" src="https://cdn.shopify.com/s/files/1/0669/5721/3741/files/5887f34f8a81db7e931448096ccc9383_1.png?v=1740542597" alt="{{ shop.name }}">
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
