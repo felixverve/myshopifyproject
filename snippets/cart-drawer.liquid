@@ -74,6 +74,9 @@
           </span>
         </button>
       </div>
+      {% if cart.total_price != 0 %}
+        {% render "pengpeng-jindutiao" %}
+      {% endif %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
