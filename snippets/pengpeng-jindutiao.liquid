@@ -1,9 +1,9 @@
-{% liquid 
+{% liquid
   if shop.metaobjects.free_shipping.pengpeng.amount != blank
     assign free_shipping_threshold = shop.metaobjects.free_shipping.pengpeng.amount | times: 100
   else
     # 代码链接和视频教程: https://shopify2006.com/shopify-free-shipping-indicator/
-  assign free_shipping_threshold = 30000
+    assign free_shipping_threshold = 30000
   endif
   assign cart_total = cart.total_price
   assign free_shipping_diff = free_shipping_threshold | minus: cart_total
