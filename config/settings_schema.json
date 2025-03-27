@@ -51,7 +51,7 @@
             "id": "background_gradient",
             "label": "t:settings_schema.colors.settings.background_gradient.label",
             "info": "t:settings_schema.colors.settings.background_gradient.info",
-            "default": "#FFFFFF"
+            "default": "red"
           },
           {
             "type": "color",
