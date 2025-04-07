@@ -10,5 +10,20 @@
   },
   "order": [
     "main"
-  ]
+  ],
+  // ▼▼▼ 添加以下 schema 字段 ▼▼▼
+  "schema": {
+    "name": "Account Page", // 模板名称（后台显示用）
+    "settings": [], // 可添加全局设置项（非必需）
+    "blocks": [ // 定义允许添加的区块类型
+      {
+        "type": "@app" // 允许添加应用块
+      },
+      // 可选：添加其他类型区块（如自定义HTML、文本等）
+      {
+        "type": "text",
+        "name": "Custom Text"
+      }
+    ]
+  }
 }

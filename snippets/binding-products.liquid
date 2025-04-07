@@ -1,0 +1,98 @@
+{{ 'binding-products.css' | asset_url | stylesheet_tag }}
+{%- assign option_index = forloop.index -%}
+<div class="variant-wrapper js" data-type="button">
+  <label class="variant__label" for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}">
+    {{ option.name }}
+  </label>
+  <fieldset
+    class="variant-input-wrap"
+    name="{{ option.name }}"
+    data-index="option{{ option_index }}"
+    data-handle="{{ option.name | handleize }}"
+    id="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}"
+  >
+    <legend class="hidden">{{ option.name }}</legend>
+    {%- for value in option.values -%}
+      <div
+        class="variant-input"
+        data-index="option{{ option_index }}"
+        data-value="{{ value | escape }}"
+      >
+        <input
+          type="radio"
+          form="{{ form_id }}"
+          {% if option.selected_value == value %}
+            checked="checked"
+          {% endif %}
+          value="{{ value | escape }}"
+          data-index="option{{ option_index }}"
+          name="{{ option.name }}"
+          data-variant-input
+          class="variant__input--color-swatch"
+          data-color-name="{{ value | escape }}"
+          data-color-index="{{ color_option_index }}"
+          id="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}"
+        >
+        {% for tag in product.tags %}
+          {% if tag contains '_' %}
+            {% assign tag = tag %}
+            {% if product.handle == tag %}
+              {%- assign color_swatch_fallback = value | split: '' | last | handle -%}
+              {% assign color_image = product.featured_image l image_url %}
+              <a
+                class="swatch-link variant-input loadedproduct"
+                href="/products/{{tag}}"
+              >
+                <label
+                  for="ProductSelect-{{ section_id }}-option-{{ option.name | handleize }}-{{ value | url_encode }}"
+                  data-bg-image="{{ color_image }}"
+                  data-alter-image="{{ fallback_image }}"
+                  class="variant__button-label active-swatch tag-color-swatch color-swatch--{{ value | handle }}"
+                  style="background-image: url({{ color_image }}),url({{ faliback_image }}); {% unless color_image %}background-color: {{ color_swatch_fallback }};{% endunless %}"
+                >
+                  {{ value | escape }}
+                </label>
+                <span class="variant__label-info">
+                  {{ value }}
+                </span>
+              </a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% for tag in product.tags %}
+          {% if tag contains '_' %}
+            {% if product.handle != tag %}
+              {% for product_option in all_products[tag].options_with_values %}
+                {% if product_option.name contains 'color' or product_option.name contains 'Color' %}
+                  {% for value in product_option.values %}
+                    {%- assign color_swatch_fallback = value | split: '' | last | handle -%}
+                    {% assign color_image = all_products[tag],featured_image | image_url %}
+                    <a
+                      class="swatch-link variant-input otherproducts"
+                      href="/products/{{tag}}"
+                    >
+                      <label
+                        for="
+                                                    productSelect-{{ section_id }}-option-{{ product_option.name | handleize }}-{{ value | url_encode }}
+                        "
+                        class="variant__button-label tag-color-swatch color-swatch--{{ value | handle }}"
+                        data-bg-image="{{ color_image }}"
+                        data-alter-image="{{ fallback_image }}"
+                        style="background-image: url({{ color_image }}),url({{ faliback_image }}); {% unless color_image %}background-color: {{ color_swatch_fallback }};{% endunless %}"
+                      >
+                        {{ value | escape }}
+                      </label>
+                      <span class="variant label-info">
+                        {{ value }}
+                      </span>
+                    </a>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </fieldset>
+</div>

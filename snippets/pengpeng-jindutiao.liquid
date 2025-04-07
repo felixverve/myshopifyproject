@@ -1,3 +1,4 @@
+{% comment %} 到达一定金额免邮 {% endcomment %}
 {% liquid
   if shop.metaobjects.free_shipping.pengpeng.amount != blank
     assign free_shipping_threshold = shop.metaobjects.free_shipping.pengpeng.amount | times: 100
